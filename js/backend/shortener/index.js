@@ -10,6 +10,7 @@ const users = []
 
 
 /**
+ * @GET
  * Get all users
  */
 app.get("/api/users", (request, response)=>{
@@ -19,6 +20,7 @@ app.get("/api/users", (request, response)=>{
 })
 
 /**
+ * @GET
  * Find user by cpf
  */
 app.get("/api/users/search/:cpf", (request, response)=>{
@@ -33,6 +35,7 @@ app.get("/api/users/search/:cpf", (request, response)=>{
 })
 
 /**
+ * @POST
  * Create a new user
  */
 app.post("/api/user/new", (request, response)=>{
@@ -49,6 +52,7 @@ app.post("/api/user/new", (request, response)=>{
 })
 
 /**
+ * @DELETE
  * Delete user by CPF
  */
 app.delete("/api/user/delete", (request, response)=>{
@@ -69,6 +73,7 @@ app.delete("/api/user/delete", (request, response)=>{
 
 
 /**
+ * @PUT
  * Updete user data
  */
 app.put("/api/user/update", (request, response) =>{
