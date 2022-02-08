@@ -1,7 +1,8 @@
 
 import mongodb from "mongodb"
 import dotenv from "dotenv"
-import CONST from "../model/CONSTANTS"
+import {SUCCESSFUL, ERROR} from "../model/CONSTANTS.js"
+
 
 
 // configure .env file 

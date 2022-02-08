@@ -17,6 +17,7 @@ Packages
 
 
 import express from "express"
+import db from "./db/conn.js"
 
 
 
@@ -26,4 +27,9 @@ const port = 3000
 app.use(express.json())
 
 
-app.get("/",(request, response)=> )
+app.get("/all",(request, response)=> response.send(db.getAll()))
+
+
+app.listen(port,()=>{
+    console.log(`Server running on port ${port}`)
+})
