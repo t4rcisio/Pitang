@@ -26,8 +26,23 @@ const port = 3000
 
 app.use(express.json())
 
+var data
 
-app.get("/all",(request, response)=> response.send(db.getAll()))
+function getData(request, response, next) {
+    const response_data = db.getAll()
+
+    response_data.then(solution=>{
+        data = solution
+        next()
+    })
+}
+
+app.use(getData)
+
+app.get("/all",(request, response)=>{
+    
+    response.send(data).status(200)
+})
 
 
 app.listen(port,()=>{

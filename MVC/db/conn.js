@@ -16,19 +16,18 @@ const response_data = {"status": "", "message": "", "data": ""};
 
 const db ={
     async getAll () {
-         
         try{ 
             await client.connect()
             response_data.data = await database.collection(process.env.COLLECTION).find().toArray()
-            response_data.status = CONST.SUCCESSFUL
             response_data.message = ""
+            response_data.status = SUCCESSFUL
         }catch(error){
-            response_data.status = CONST.ERROR
             response_data.message = error
+            response_data.status = ERROR
         }
         finally{
-            return response_data
             client.close()
+            return response_data
         }
     }
 }
