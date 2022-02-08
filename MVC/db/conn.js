@@ -1,6 +1,8 @@
 
 import mongodb from "mongodb"
 import dotenv from "dotenv"
+import CONST from "../model/CONSTANTS"
+
 
 // configure .env file 
 dotenv.config() 
@@ -9,16 +11,19 @@ const urldb = `mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@${proce
 const client = new mongodb.MongoClient(urldb)
 
 const database = client.db(process.env.DATABASE)
+const response_data = {"status": "", "message": "", "data": ""};
 
 const db ={
     async getAll () {
-        const response_data = {}; 
+         
         try{ 
             await client.connect()
-            response_data = await database.collection(process.env.COLLECTION).find().toArray()
-            response_data = {"status": }
-        }catch{
-
+            response_data.data = await database.collection(process.env.COLLECTION).find().toArray()
+            response_data.status = CONST.SUCCESSFUL
+            response_data.message = ""
+        }catch(error){
+            response_data.status = CONST.ERROR
+            response_data.message = error
         }
         finally{
             return response_data
