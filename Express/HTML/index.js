@@ -2,7 +2,7 @@ import express from "express"
 import path from "path"
 
 
-const port = 300
+const port = 3000
 const app =  express()
 
 

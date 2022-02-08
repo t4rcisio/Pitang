@@ -1,12 +1,12 @@
 import  express  from "express";
 import crypto from "crypto"
 
+import users from "./model/userModel.js"
+
 const app = express();
 
 app.use(express.json())
 const port = 3000
-
-const users = []
 
 
 /**
